@@ -31,8 +31,11 @@ dependencies {
     def springVersion = '4.2.5.RELEASE'
     compile "org.springframework:spring-webmvc:${springVersion}"
     compile "org.springframework:spring-jdbc:${springVersion}"
+    testCompile "org.springframework:spring-test:${springVersion}"
     
     compile "org.mybatis:mybatis:3.2.2"
     compile "org.mybatis:mybatis-spring:1.3.0"
+    compile "com.alibaba:druid:1.0.20"
+    compile "oracle:ojdbc:6"
 }
 
