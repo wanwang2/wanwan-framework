@@ -15,4 +15,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'wanwan-framework-gradles'
+rootProject.name = 'wanwan-framework-gradle'
