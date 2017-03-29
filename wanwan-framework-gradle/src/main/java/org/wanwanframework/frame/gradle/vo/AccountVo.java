@@ -1,5 +1,10 @@
 package org.wanwanframework.frame.gradle.vo;
 
+/**
+ * 测试的时候随意定义一个模型就可以
+ * @author coco
+ *
+ */
 public class AccountVo {
 
 	private String username;

@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="org.wanwanframework.frame.gradle.vo.UpdateEcCustIdVo"
-			alias="UpdateEcCustIdVo" />
+		<typeAlias type="org.wanwanframework.frame.gradle.vo.AccountVo"
+			alias="AccountVo" />
 	</typeAliases>
 </configuration>
