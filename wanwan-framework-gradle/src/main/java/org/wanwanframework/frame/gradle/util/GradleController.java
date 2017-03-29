@@ -1,4 +1,4 @@
-package org.wanwanframework.frame.gradle;
+package org.wanwanframework.frame.gradle.util;
 
 public class GradleController {
 	
