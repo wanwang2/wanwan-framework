@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.wanwanframework.jdbc.mybatis.IMEIMonthData">
+
+    <insert id="insert" parameterType="java.util.List">
+        insert into TF_IMEI_SEPARATE_MONTH_NEW(
+	        SERIAL_NUMBER,
+			PROVINCEID,
+			CTIY_BELON,
+			USER_COUNTNUMBER,
+			IMPORT_TIME DATE,
+			IMPORT_BATCHID,
+			ECCUST_NAME,
+			ECCUST_ID,
+			RATE_IMEI,
+			FEEDBACK,
+			EXCEPTION_TYPE,
+			DATA_TIME DATE,
+			RISKLEVEL_RATIO_ZERO,
+			RISKLEVEL_RATIO_ONE,
+			RISKLEVEL_RATIO_TWO,
+			RISKLEVEL_RATIO_THREE
+		)
+
+        <foreach collection="list" item="vo" index="index" separator="union" >
+            (select
+                #{vo.seriaNumber,jdbcType=VARCHAR}
+                ,#{vo.provinceId,jdbcType=VARCHAR}
+                ,#{vo.ctiyBelong,jdbcType=VARCHAR}
+                ,#{vo.userCount,jdbcType=VARCHAR}
+                ,sysdate
+                ,#{vo.importBatchId,jdbcType=VARCHAR}
+                ,#{vo.eccustName,jdbcType=VARCHAR}
+                ,#{vo.eccustId,jdbcType=INTEGER}
+                ,#{vo.rateImei,jdbcType=TIMESTAMP}
+                ,#{vo.feedback,jdbcType=VARCHAR}
+                ,#{vo.exceptionType,jdbcType=VARCHAR}
+                ,#{vo.dataTime},
+                ,#{vo.risklevelRatioZero,jdbcType=VARCHAR},
+                ,#{vo.risklevelRatioOne,jdbcType=VARCHAR},
+                ,#{vo.risklevelRatioTwo,jdbcType=VARCHAR},
+                ,#{vo.risklevelRatioThree,jdbcType=VARCHAR}
+            from dual)
+        </foreach>
+    </insert>
+    
+</mapper>

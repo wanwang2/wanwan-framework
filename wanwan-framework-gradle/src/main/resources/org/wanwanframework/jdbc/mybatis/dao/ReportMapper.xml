@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.wanwanframework.jdbc.mybatis.dao.ReportMapper">
+
+	<select id="updateMonthReportEcCustId"
+		parameterType="org.wanwanframework.jdbc.mybatis.UpdateEcCustIdVo"
+		statementType="CALLABLE">
+        <![CDATA[
+          {call UPDATE_IMEI_REPORT_ECCUSTID(#{startTime, mode=IN, jdbcType=VARCHAR}
+          , #{endTime, mode=IN, jdbcType=VARCHAR},#{weekReportFlag, mode=IN, jdbcType=INTEGER}
+          ,#{successCnt, mode=OUT, jdbcType=VARCHAR})}
+        ]]>
+	</select>
+
+</mapper>

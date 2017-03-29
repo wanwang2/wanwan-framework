@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.wanwanframework.jdbc.mybatis.dao.IMEIFeedbackDao">
+
+	<!--用户信息反馈统计查询 -->
+	<select id="queryCountByProvince" resultType="org.wanwanframework.jdbc.mybatis.IMEIFeedbackVo"
+		parameterType="java.util.Map">
+
+		SELECT
+		*
+		FROM
+		(SELECT T.*,
+		ROWNUM STARTNUM
+		FROM
+		(
+		select t.provinceid province, count(1) total,
+		(select count(*) from tf_imei_separate_month s where s.feedback is not null
+		and s.provinceid = t.provinceid) feedbackData,
+		(select count(*) from tf_imei_separate_month s where s.feedback is null and
+		s.provinceid = t.provinceid) notFeedbackData,
+		(select min(s.first_feedback_time) from tf_imei_separate_month s )
+		firstFeedTime,
+		(select max(s.last_feedback_time) from tf_imei_separate_month s )
+		lastFeedTime
+		from tf_imei_separate_month t group by t.provinceid
+		) t 
+           
+             <![CDATA[
+             WHERE rownum <= #{endIndex}
+             )
+           WHERE startnum >= #{startIndex}
+         ]]>
+
+	</select>
+	
+	<!--用户信息反馈统计查询 -->
+	<select id="queryTotal" resultType="java.lang.Long"
+		parameterType="java.util.Map">
+		 select count(1) from sa_db_province
+	</select>
+
+</mapper>
