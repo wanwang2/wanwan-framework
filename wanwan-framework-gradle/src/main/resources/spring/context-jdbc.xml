@@ -36,7 +36,7 @@
 	</bean>
 	
 	<!-- mybitas 配置 sqlSessionFactory -->
-<!-- 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-resources.xml"></property>
 		<property name="mapperLocations">
@@ -44,6 +44,6 @@
 				<value>classpath:org/wanwanframework/jdbc/mybatis/dao/*.xml</value>
 			</list>
 		</property>
-	</bean> -->
+	</bean> 
 
 </beans>
