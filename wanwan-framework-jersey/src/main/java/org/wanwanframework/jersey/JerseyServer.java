@@ -28,7 +28,13 @@ public class JerseyServer {
 
 	private String result(String name) {
 		try {
-			name = new String(request.getParameter("name").getBytes("ISO-8859-1"), "UTF-8");
+			String nameByte = request.getParameter("name");
+			if(nameByte != null) {
+				name = new String(nameByte.getBytes("ISO-8859-1"), "UTF-8");
+			} else {
+				name = "没有名字，我勒个叉叉";
+			}
+			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
