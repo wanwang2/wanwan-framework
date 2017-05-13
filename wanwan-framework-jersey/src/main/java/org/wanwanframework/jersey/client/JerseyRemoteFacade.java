@@ -12,6 +12,7 @@ public abstract class JerseyRemoteFacade {
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public <T> T invoke(String uri, String method, RequestParam param, Class<T> classz) {
 		param.setMethod(method);
 		ClientResponse clientResponse = getJerseyService().getInstance(uri).invoke(param);
