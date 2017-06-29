@@ -1,4 +1,4 @@
-package org.wanwanframework.jersey;
+package org.wanwanframework.jersey.spring;
 
 import javax.ws.rs.core.MediaType;
 

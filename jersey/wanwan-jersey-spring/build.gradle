@@ -15,7 +15,8 @@ repositories
  {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
@@ -49,7 +50,10 @@ dependencies {
 
     //compile "com.sun.jersey:jersey-core:1.18"
     compile "com.sun.jersey.contribs:jersey-multipart:1.18"
-    //compile "javax.servlet:javax.servlet-api:3.0.1"
+    compile "javax.servlet:javax.servlet-api:3.0.1"
+
+	compile "com.sun.jersey.contribs:jersey-spring:1.19.4"
+	compile "oracle:ojdbc:6"
 
 }
 
