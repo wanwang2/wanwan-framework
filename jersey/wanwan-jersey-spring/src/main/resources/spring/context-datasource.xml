@@ -35,4 +35,5 @@
 		<property name="minEvictableIdleTimeMillis" value="${db.minEvictableIdleTimeMillis}" />
 	</bean>
 
+	<context:component-scan base-package="org.wanwanframework.jersey.*" />
 </beans>
