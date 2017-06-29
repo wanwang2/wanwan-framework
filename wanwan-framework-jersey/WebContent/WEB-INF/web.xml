@@ -6,7 +6,8 @@
     http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     
     <servlet>
-        <servlet-name>helloworldservlet</servlet-name>
+    	<!-- 使用jersey容器 -->
+        <servlet-name>servlet</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>packages</param-name>
@@ -16,7 +17,7 @@
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>helloworldservlet</servlet-name>
+        <servlet-name>servlet</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
