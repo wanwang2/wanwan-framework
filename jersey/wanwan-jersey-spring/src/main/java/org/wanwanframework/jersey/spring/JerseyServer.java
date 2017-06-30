@@ -1,14 +1,21 @@
 package org.wanwanframework.jersey.spring;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -39,8 +46,7 @@ public class JerseyServer {
 			if(nameByte != null) {
 				name = new String(nameByte.getBytes("ISO-8859-1"), "UTF-8");
 			} else {
-				name = "没有名字，我勒个叉叉";
-				name = dataSource.toString();
+				name = getDate();
 			}
 			
 		} catch (UnsupportedEncodingException e) {
@@ -48,5 +54,10 @@ public class JerseyServer {
 		}
 		response.setCharacterEncoding("UTF-8");
 		return "My name is " + name + ", Hello World!";
+	}
+	
+	@Cacheable("getDate") 
+	public String getDate() {
+		return new Date().toString();
 	}
 }

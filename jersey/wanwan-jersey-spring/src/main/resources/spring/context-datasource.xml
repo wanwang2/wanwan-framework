@@ -36,4 +36,6 @@
 	</bean>
 
 	<context:component-scan base-package="org.wanwanframework.jersey.*" />
+	
+	<context:component-scan base-package="org.wanwanframework.jersey.spring" /> 
 </beans>
