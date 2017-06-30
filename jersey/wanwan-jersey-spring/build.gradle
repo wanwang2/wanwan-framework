@@ -60,5 +60,8 @@ dependencies {
 	compile "com.sun.jersey.contribs:jersey-spring:1.19.4"
 	compile "oracle:ojdbc:6"
 
+	compile "org.springframework.data:spring-data-redis:1.8.4.RELEASE"
+	compile "redis.clients:jedis:2.9.0"
+
 }
 
