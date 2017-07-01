@@ -19,7 +19,7 @@ public class SpringBoot {
         return "home";
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(SpringBoot.class, args);
     }
 }
