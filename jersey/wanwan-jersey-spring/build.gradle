@@ -34,7 +34,7 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     
-    def springVersion = '4.2.5.RELEASE'
+    def springVersion = '4.1.9.RELEASE'
     compile "org.springframework:spring-webmvc:${springVersion}"
     compile "org.springframework:spring-jdbc:${springVersion}"
     testCompile "org.springframework:spring-test:${springVersion}"
@@ -53,15 +53,14 @@ dependencies {
     compile "com.sun.jersey:jersey-bundle:1.18"
     compile "com.sun.jersey:jersey-server:1.18"
 
-    //compile "com.sun.jersey:jersey-core:1.18"
     compile "com.sun.jersey.contribs:jersey-multipart:1.18"
     compile "javax.servlet:javax.servlet-api:3.0.1"
 
 	compile "com.sun.jersey.contribs:jersey-spring:1.19.4"
 	compile "oracle:ojdbc:6"
 
-	compile "org.springframework.data:spring-data-redis:1.8.4.RELEASE"
-	compile "redis.clients:jedis:2.9.0"
+	compile "org.springframework.data:spring-data-redis:1.6.2.RELEASE"
+	compile "redis.clients:jedis:2.7.2"
 
 }
 
