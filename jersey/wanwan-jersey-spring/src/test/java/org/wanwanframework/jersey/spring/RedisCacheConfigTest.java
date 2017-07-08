@@ -1,5 +1,6 @@
 package org.wanwanframework.jersey.spring;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,6 @@ public class RedisCacheConfigTest {
 	@Test
 	public void testRedis() {
 		System.out.println(jedis);
-		System.out.println(jedis.getConnection().ping());
+		Assert.assertEquals("PONG", jedis.getConnection().ping());
 	}
 }

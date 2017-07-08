@@ -30,7 +30,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         JedisConnectionFactory redisConnectionFactory = new JedisConnectionFactory();  
   
         // Defaults  
-        redisConnectionFactory.setHostName("192.168.1.100");  
+        redisConnectionFactory.setHostName("192.168.0.111");  
         redisConnectionFactory.setPort(6379);  
         return redisConnectionFactory;  
     }  
@@ -47,7 +47,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);  
   
         // Number of seconds before expiration. Defaults to unlimited (0)  
-        cacheManager.setDefaultExpiration(3000); // Sets the default expire time (in seconds)  
+        cacheManager.setDefaultExpiration(300000); // Sets the default expire time (in seconds)  
         return cacheManager;  
     }  
       

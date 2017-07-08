@@ -1,6 +1,5 @@
 package org.wanwanframework.jersey.spring;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/hello")
+@Path("/jersey")
 public class JerseyServer {
 	@Context
 	HttpServletRequest request;
@@ -41,23 +40,27 @@ public class JerseyServer {
 	}
 
 	private String result(String name) {
-		try {
-			String nameByte = request.getParameter("name");
-			if(nameByte != null) {
-				name = new String(nameByte.getBytes("ISO-8859-1"), "UTF-8");
-			} else {
-				name = getDate();
-			}
-			
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+		String nameByte = request.getParameter("name");
+		if(nameByte != null) {
+			name = searchName(name);
+		} else {
+			name = getDate();
 		}
 		response.setCharacterEncoding("UTF-8");
-		return "My name is " + name + ", Hello World!";
+		return "param:" + name;
 	}
+
+	@Cacheable("name")  
+	public String searchName(String name){  
+	    return new Date().toString();     
+	}  
 	
-	@Cacheable("getDate") 
 	public String getDate() {
-		return new Date().toString();
+		String redisDate = JedisPoolUtils.getJedis().get("date");
+		if(redisDate == null) {
+			redisDate = "" + (new Date()).getTime();
+			JedisPoolUtils.getJedis().set("date", redisDate);
+		}
+		return redisDate;
 	}
 }
