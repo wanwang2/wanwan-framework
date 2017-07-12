@@ -34,7 +34,7 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     
-    def springVersion = '4.1.9.RELEASE'
+    def springVersion = '4.3.9.RELEASE'
     compile "org.springframework:spring-webmvc:${springVersion}"
     compile "org.springframework:spring-jdbc:${springVersion}"
     testCompile "org.springframework:spring-test:${springVersion}"
@@ -60,7 +60,7 @@ dependencies {
 	compile "oracle:ojdbc:6"
 
 	compile "org.springframework.data:spring-data-redis:1.6.2.RELEASE"
-	compile "redis.clients:jedis:2.7.2"
+	compile "redis.clients:jedis:2.9.0"
 
 }
 
