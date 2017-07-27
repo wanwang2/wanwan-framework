@@ -61,6 +61,9 @@ dependencies {
 
 	compile "org.springframework.data:spring-data-redis:1.6.2.RELEASE"
 	compile "redis.clients:jedis:2.9.0"
+	
+	compile "org.elasticsearch:elasticsearch:5.4.1"
+	compile "org.elasticsearch.client:transport:5.4.1"
 
 }
 
