@@ -23,4 +23,11 @@ public class RedisTemplateTest {
 		String value = (String)valueOperations.get("vv");
 		System.out.println("value:" + value);
 	}
+	
+	@Test
+	public void testGet() {
+		ValueOperations<String, Object> valueOperations = redisTemplate.opsForValue();
+		String value = (String)valueOperations.get("vv");
+		System.out.println("value:" + value);	
+	}
 }
