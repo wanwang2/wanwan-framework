@@ -48,13 +48,14 @@ dependencies {
 
     compile "com.sun.jersey.contribs:jersey-multipart:1.19.2"
     compile "com.sun.jersey.contribs:jersey-apache-client4:1.19.2"
-    compile ("com.sun.jersey:jersey-spring:1.19.2"){
+   
+    compile ("com.sun.jersey.contribs:jersey-spring:1.19.4"){
     	exclude group: "org.springframework", module: "*"
     }
     
-    compile "org.apache.httpcomponents:httpclient:4.3.1"
-    compile "org.apache.httpcomponents:httpcore:4.3"
-    compile "com.lufax.kernel:kernel-core:0.3.20"
+    compile "org.apache.httpcomponents:httpclient:4.5.2"
+    compile "org.apache.httpcomponents:httpcore:4.4.5"
+    //compile "com.lufax.kernel:kernel-core:0.3.20"
     
     compile "javax.servlet:javax.servlet-api:3.0.1"
    
