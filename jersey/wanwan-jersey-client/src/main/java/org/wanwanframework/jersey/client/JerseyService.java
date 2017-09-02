@@ -15,6 +15,17 @@ public class JerseyService {
 	private JerseyHost host;
 	private String uri;
 	private Client client;
+	
+	synchronized public Client getClient() {
+		if(client == null) {
+			init();
+		}
+		return client;
+	}
+	
+	private void init() {
+		client = new Client(new apacheh)
+	}
 
 	public String getReadTime() {
 		return readTime;
@@ -86,14 +97,6 @@ public class JerseyService {
 
 	public void setUri(String uri) {
 		this.uri = uri;
-	}
-
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
 	}
 
 	public JerseyInstanceImpl getInstance(String uri) {
