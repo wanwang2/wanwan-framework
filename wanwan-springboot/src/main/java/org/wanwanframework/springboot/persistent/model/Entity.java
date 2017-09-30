@@ -1,10 +1,12 @@
 package org.wanwanframework.springboot.persistent.model;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "entity")
+@ComponentScan
 public class Entity {
 
 	private Long id;
