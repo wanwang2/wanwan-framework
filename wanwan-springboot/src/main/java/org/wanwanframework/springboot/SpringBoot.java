@@ -12,17 +12,17 @@ import org.wanwanframework.springboot.persistent.model.Entity;
 import org.wanwanframework.springboot.service.EntityService;
 
 /**
- * http://localhost:8080/
+ * http://localhost:9099/springboot/service
  * @author coco
  *
  */
 @RestController
 @EnableAutoConfiguration
-@ComponentScan(basePackages={"org.wanwanframework.springboot.persistent"})
+@ComponentScan(basePackages={"org.wanwanframework.springboot"})
 public class SpringBoot {
 
-	//@Resource
-	//private EntityService entityService;
+	@Resource
+	private EntityService entityService;
 	
 	@Resource
 	private Entity entity;
@@ -35,9 +35,9 @@ public class SpringBoot {
         return path;
     }
     
-    @RequestMapping("/entity")
+    @RequestMapping("/service")
     public String entity() {
-    	return entity.toString();
+    	return entityService.getEntity();
     }
 
     public static void main(String[] args) {
